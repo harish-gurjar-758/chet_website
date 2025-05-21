@@ -4,43 +4,50 @@ import bcrypt from 'bcryptjs';
 
 export const signup = async (req, res) => {
     const { fullName, email, password } = req.body;
+    
     try {
-        if (password.length < 6) {
-            return res.status(400).json({
-                message: "Paasword must be at least 6 characters"
-            });
+        // Validate input
+        if (!fullName || !email || !password) {
+            return res.status(400).json({ message: "All fields are required" });
         }
-        const user = await User.findOne({ email });
 
-        if (user) return res.status(400).json({ message: "Email already exists" });
+        if (password.length < 6) {
+            return res.status(400).json({ message: "Password must be at least 6 characters" });
+        }
 
-        const salt = await bcrypt.getSalt(10);
+        // Check for existing user
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: "Email already exists" });
+        }
+
+        // Hash password
+        const salt = await bcrypt.genSalt(10); // 🔧 FIXED: was bcrypt.getSalt()
         const hashedPassword = await bcrypt.hash(password, salt);
 
+        // Create user
         const newUser = new User({
             fullName,
             email,
             password: hashedPassword
         });
 
-        if (newUser) {
-            //  generate jwt token here
-            generateToken(newUser._id, res)
-            await newUser.save();
+        await newUser.save(); // Save first
 
-            res.status(201).json({
-                _id: newUser._id,
-                fullName: newUser.fullName,
-                email: newUser.email,
-                profilePic: newUser.profilePic,
-            })
-        } else {
-            res.status(400).json({ message: "Invalid user data" });
-        }
+        // Generate JWT
+        generateToken(newUser._id, res);
+
+        // Respond
+        res.status(201).json({
+            _id: newUser._id,
+            fullName: newUser.fullName,
+            email: newUser.email,
+            profilePic: newUser.profilePic || null, // optional fallback
+        });
 
     } catch (error) {
-        console.log("Error in signup controller", error.message);
-        res.status(500).json({ message: "Internal Server Error" });
+        console.error("Signup Error:", error.message);
+        res.status(500).json({ message: "Something went wrong. Please try again." }); // 🎯 Clean error message
     }
 };
 export const login = (req, res) => {
