@@ -2,7 +2,7 @@ import { generateToken } from '../lib/utils.js';
 import User from '../modules/user.model.js';
 import bcrypt from 'bcryptjs';
 
-// Sign Up Controller
+// Sign Up Controller Method
 export const signup = async (req, res) => {
     const { fullName, email, password } = req.body;
 
@@ -52,7 +52,7 @@ export const signup = async (req, res) => {
     }
 };
 
-// Sign In && Log In controller
+// Sign In && Log In controller Method
 export const login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -86,7 +86,7 @@ export const login = async (req, res) => {
     }
 };
 
-// Sign Out && Log Out Controller
+// Sign Out && Log Out Controller Method
 export const logout = (req, res) => {
     try {
         res.cookie("jwt", "", { maxAge: 0 });
@@ -96,3 +96,6 @@ export const logout = (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 }
+
+// Update Controller Method
+export const updateProfilen = async (req, res) => { }
