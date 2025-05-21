@@ -98,4 +98,11 @@ export const logout = (req, res) => {
 }
 
 // Update Controller Method
-export const updateProfilen = async (req, res) => { }
+export const updateProfilen = async (req, res) => { 
+    try {
+        // const {profilePic} = 
+        // req.user._id
+    } catch (error) {
+        
+    }
+}
