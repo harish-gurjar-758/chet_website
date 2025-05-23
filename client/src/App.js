@@ -2,7 +2,8 @@ import React from "react";
 
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div >
+      <h1>This is react chet web application</h1>
     </div>
   );
 }
