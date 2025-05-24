@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 function App() {
   return (
-    <div >
-      <h1>This is react chet web application</h1>
+    <div>
+      <h1>Thidshbcdsyu uysdvb</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
