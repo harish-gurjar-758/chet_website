@@ -4,6 +4,7 @@ export default function SignUp() {
   return (
     <div>
       this is a Sign Up..
+    
     </div>
   )
 }
