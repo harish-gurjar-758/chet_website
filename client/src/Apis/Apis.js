@@ -1,10 +1,23 @@
 import axios from 'axios';
 
-const BASE_API = process.env.MAIN_API;
+const BASE_API = 'http://localhost:3000/api';
+// const BASE_API = process.env.MAIN_API;
 
 // -----
 // -Auth-
 // -----
+
+// check
+export const CheckAuthentication = async () => {
+    try {
+        const response = await axios.get(`${BASE_API}/auth/check`, {
+            withCredentials: true,
+        });
+        return response.data;
+    } catch (error) {
+        throw error; // Important to rethrow for store to handle it
+    }
+};
 
 // Sign Up
 export const SignUp = async () => {

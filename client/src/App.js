@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from './Components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage';
@@ -9,7 +9,12 @@ import ProfilePage from './Components/Pages/ProfilePage';
 import { useAuthStore } from './store/useAuthStore';
 
 function App() {
-  const {authUser} = useAuthStore();
+  const { authUser, checkAuth } = useAuthStore();
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
+  console.log({ authUser })
 
   return (
     <div>
