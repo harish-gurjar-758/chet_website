@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import NavBar from './Components/NavBar';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import HomePage from './Components/Pages/HomePage';
-import SignUpPage from './Components/Pages/SignUpPage';
-import LogInPage from './Components/Pages/LogInPage';
-import SettingsPage from './Components/Pages/SettingsPage';
-import ProfilePage from './Components/Pages/ProfilePage';
+import HomePage from './Pages/HomePage';
+import SignUpPage from './Pages/SignUpPage';
+import LogInPage from './Pages/LogInPage';
+import SettingsPage from './Pages/SettingsPage';
+import ProfilePage from './Pages/ProfilePage';
 import { useAuthStore } from './store/useAuthStore';
-import { Loader } from 'lucide-react'
+import { Loader } from 'lucide-react';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -57,6 +58,7 @@ function App() {
           }
         />
       </Routes>
+      <Toaster />
     </div>
   );
 }

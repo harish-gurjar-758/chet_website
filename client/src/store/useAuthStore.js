@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { CheckAuthentication } from '../Apis/Apis';
+import { CheckAuthentication, SignUp } from '../Apis/Apis';
+import toast from 'react-hot-toast';
 
 export const useAuthStore = create((set) => ({
     authUser: null,
@@ -8,6 +9,7 @@ export const useAuthStore = create((set) => ({
     isUpdatingProfile: false,
 
     isCheckingAuth: true,
+
     checkAuth: async () => {
         try {
             const user = await CheckAuthentication();
@@ -17,6 +19,17 @@ export const useAuthStore = create((set) => ({
             set({ authUser: null });
         } finally {
             set({ isCheckingAuth: false });
+        }
+    },
+
+    Signup: async (data) => {
+        set({ isSigningUp: true });
+        try {
+            const res = await SignUp(data);
+            set({ authUser: res.data });
+            toast.success("Account created successfully");
+        } catch (error) {
+            toast.error(error.response.data.message);
         }
     }
 }))
