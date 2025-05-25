@@ -9,12 +9,18 @@ import ProfilePage from './Components/Pages/ProfilePage';
 import { useAuthStore } from './store/useAuthStore';
 
 function App() {
-  const { authUser, checkAuth } = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
 
-  console.log({ authUser })
+  console.log({ authUser });
+
+  if (isCheckingAuth && !authUser) return (
+    <div>
+      <p>Loading..</p>
+    </div>
+  )
 
   return (
     <div>
