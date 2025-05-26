@@ -1,13 +1,14 @@
+// src/api/Apis.js
 import axios from 'axios';
 
 const BASE_API = 'http://localhost:5001/api';
 // const BASE_API = process.env.MAIN_API;
 
-// -----
-// -Auth-
-// -----
+// ----------------
+// -- Auth APIs --
+// ----------------
 
-// check
+// Check Auth
 export const CheckAuthentication = async () => {
     try {
         const response = await axios.get(`${BASE_API}/auth/check`, {
@@ -15,41 +16,50 @@ export const CheckAuthentication = async () => {
         });
         return response.data;
     } catch (error) {
-        throw error; // Important to rethrow for store to handle it
+        console.error("Auth check failed:", error.message);
+        throw error;
     }
 };
 
 // Sign Up
-export const SignUp = async () => {
+export const SignUp = async (data) => {
     try {
-        const response = await axios.post(`${BASE_API}/auth/signup`);
+        const response = await axios.post(`${BASE_API}/auth/signup`, data, {
+            withCredentials: true,
+        });
         return response.data;
     } catch (error) {
-        console.log("Error in Sign Up User:", error.message);
+        console.error("Sign up failed:", error.message);
+        throw error;
     }
 };
 
 // Sign In
-export const SignIn = async () => {
+export const SignIn = async (data) => {
     try {
-        const response = await axios.post(`${BASE_API}/auth/login`);
+        const response = await axios.post(`${BASE_API}/auth/login`, data, {
+            withCredentials: true,
+        });
         return response.data;
     } catch (error) {
-        console.log("Error in Sign In User : ", error.message);
+        console.error("Sign in failed:", error.message);
+        throw error;
     }
 };
 
+// -------------------
+// -- Message APIs --
+// -------------------
 
-// -----
-// - Message -
-// -----
-
-// Users
+// Get All Users
 export const Users = async () => {
     try {
-        const response = await axios.get(`${BASE_API}/message/users`);
+        const response = await axios.get(`${BASE_API}/message/users`, {
+            withCredentials: true,
+        });
         return response.data;
     } catch (error) {
-        console.log("Error in Geting the user List : ", error.message);
+        console.error("Fetching users failed:", error.message);
+        throw error;
     }
-}
+};
