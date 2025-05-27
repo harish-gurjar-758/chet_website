@@ -31,9 +31,9 @@ export default function SignUpPage() {
     };
 
     return (
-        <div className="flex min-h-screen">
+        <div className="d-flex min-h-screen">
             {/* Left side (form) */}
-            <div className="w-1/2 p-10 flex flex-col justify-center">
+            <div className="w-50 p-4 d-flex flex-column justify-content-center">
                 <div className="mb-8 text-center">
                     <div className="mb-2 flex justify-center items-center text-4xl">
                         <MessageSquare />
@@ -123,7 +123,7 @@ export default function SignUpPage() {
             </div>
 
             {/* Right side (image) */}
-            <div className="w-1/2 hidden md:block">
+            <div className="d-none d-md-block w-50">
                 <AuthImagePattern
                     title="Join our community"
                     subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
