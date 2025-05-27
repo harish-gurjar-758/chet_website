@@ -123,7 +123,7 @@ export const updateProfilen = async (req, res) => {
     }
 }
 
-// --
+// -- check auth
 export const checkAuth = (req, res) => {
     try {
         res.status(200).json(req.user);
