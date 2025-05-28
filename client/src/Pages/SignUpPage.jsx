@@ -64,7 +64,7 @@ export default function SignUpPage() {
                     {/* Password */}
                     <div>
                         <label className="form-label">Password</label>
-                        <div className="position-relative">
+                        <div className="position-relative bg-transprant">
                             <Lock className="position-absolute top-50 translate-middle-y ms-3 text-dark" />
                             <input
                                 type={showPassword ? 'text' : 'password'}
