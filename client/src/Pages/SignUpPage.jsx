@@ -33,7 +33,7 @@ export default function SignUpPage() {
                     <h2 className="fw-bold">Create Account</h2>
                     <p className="text-secondary">Get started with your free account</p>
                 </div>
-                <form onSubmit={handleSubmit} className="w-50 vstack gap-3">
+                <form onSubmit={handleSubmit} className="w-50 form-controler vstack gap-3">
                     {/* Full Name */}
                     <div>
                         <label className="form-label">Full Name</label>
