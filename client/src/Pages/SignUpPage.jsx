@@ -25,23 +25,23 @@ export default function SignUpPage() {
     };
 
     return (
-        <div className="d-flex min-vh-100 text-white" style={{ backgroundColor: '#0f172a' }}>
+        <div className="d-flex min-vh-100 h-100 text-white d-flex align-items-center jucstify-content-center" style={{ backgroundColor: '#0f172a' }}>
             {/* Left (form) */}
-            <div className="w-50 d-flex flex-column justify-content-center px-5">
+            <div className="w-50 d-flex flex-column align-items-center justify-content-center px-5">
                 <div className="text-center mb-4">
                     <MessageSquare size={32} className="mb-2 text-primary" />
                     <h2 className="fw-bold">Create Account</h2>
                     <p className="text-secondary">Get started with your free account</p>
                 </div>
-                <form onSubmit={handleSubmit} className="vstack gap-3">
+                <form onSubmit={handleSubmit} className="w-50 vstack gap-3">
                     {/* Full Name */}
                     <div>
                         <label className="form-label">Full Name</label>
                         <div className="position-relative">
-                            <User className="position-absolute top-50 translate-middle-y ms-3" />
+                            <User className="position-absolute top-50  translate-middle-y ms-3 text-dark" />
                             <input
                                 className="form-control ps-5"
-                                placeholder="John Doe"
+                                placeholder="Harish Gurjar"
                                 value={formData.fullName}
                                 onChange={e => setFormData({ ...formData, fullName: e.target.value })}
                             />
@@ -51,7 +51,7 @@ export default function SignUpPage() {
                     <div>
                         <label className="form-label">Email</label>
                         <div className="position-relative">
-                            <Mail className="position-absolute top-50 translate-middle-y ms-3" />
+                            <Mail className="position-absolute top-50 translate-middle-y ms-3 text-dark" />
                             <input
                                 type="email"
                                 className="form-control ps-5"
@@ -65,7 +65,7 @@ export default function SignUpPage() {
                     <div>
                         <label className="form-label">Password</label>
                         <div className="position-relative">
-                            <Lock className="position-absolute top-50 translate-middle-y ms-3" />
+                            <Lock className="position-absolute top-50 translate-middle-y ms-3 text-dark" />
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 className="form-control ps-5 pe-5"

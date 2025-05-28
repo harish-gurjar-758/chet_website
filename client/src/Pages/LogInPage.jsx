@@ -45,7 +45,7 @@ export default function LogInPage() {
                     <div className="form-control">
                         <label className="block mb-1 font-medium">Email</label>
                         <div className="relative flex items-center">
-                            <Mail className="absolute left-3" />
+                            <Mail/> 
                             <input
                                 type="email"
                                 className="w-full pl-10 border rounded px-3 py-2"
