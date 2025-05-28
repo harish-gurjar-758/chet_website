@@ -37,7 +37,7 @@ export default function SignUpPage() {
                     {/* Full Name */}
                     <div>
                         <label className="form-label">Full Name</label>
-                        <div className="position-relative">
+                        <div className="position-relative bg-transpent">
                             <User className="position-absolute top-50  translate-middle-y ms-3 text-dark" />
                             <input
                                 className="form-control ps-5"
