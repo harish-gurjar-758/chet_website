@@ -50,7 +50,7 @@ export default function SignUpPage() {
                     {/* Email */}
                     <div>
                         <label className="form-label">Email</label>
-                        <div className="position-relative">
+                        <div className="position-relative bg-transprant">
                             <Mail className="position-absolute top-50 translate-middle-y ms-3 text-dark" />
                             <input
                                 type="email"
