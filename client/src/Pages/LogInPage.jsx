@@ -28,27 +28,27 @@ export default function LogInPage() {
         if (isValid) logIn(formData);
     };
     return (
-        <div className="flex min-h-screen">
+        <div className="d-flex min-vh-100 h-100 text-white d-flex align-items-center jucstify-content-center flex-wrap" style={{ backgroundColor: '#0f172a' }}>
             {/* Left side (form) */}
-            <div className="w-1/2 p-10 flex flex-col justify-center">
+            <div className="w-50 d-flex flex-column align-items-center justify-content-center">
                 <div className="mb-8 text-center">
                     <div className="mb-2 flex justify-center items-center text-4xl">
-                        <MessageSquare />
+                        <MessageSquare size={32} className='mb-2 text-primary' />
                     </div>
-                    <h1 className="text-3xl font-bold">Log In Account</h1>
-                    <p className="text-gray-600">Welcome Back! Get started with your free account.</p>
+                    <h1 className="fw-bold">Log In Account</h1>
+                    <p className="text-secondary">Welcome Back! Get started with your free account.</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="w-100 form-controler vstack gap-3 d-flex align-items-center jucstify-content-center">
 
                     {/* Email */}
-                    <div className="form-control">
+                    <div className='w-50 form-control'>
                         <label className="block mb-1 font-medium">Email</label>
-                        <div className="relative flex items-center">
-                            <Mail/> 
+                        <div className="position-relative bg-transpent">
+                            <Mail className="position-absolute top-50  translate-middle-y ms-3 text-dark" />
                             <input
                                 type="email"
-                                className="w-full pl-10 border rounded px-3 py-2"
+                                className="form-control ps-5"
                                 placeholder="you@example.com"
                                 value={formData.email}
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -57,13 +57,13 @@ export default function LogInPage() {
                     </div>
 
                     {/* Password */}
-                    <div className="form-control">
+                    <div className='w-50 form-control'>
                         <label className="block mb-1 font-medium">Password</label>
-                        <div className="relative flex items-center">
-                            <Lock className="absolute left-3" />
+                        <div className="position-relative bg-transpent">
+                            <Lock className="position-absolute top-50  translate-middle-y ms-3 text-dark" />
                             <input
                                 type={showPassword ? "text" : "password"}
-                                className="w-full pl-10 pr-10 border rounded px-3 py-2"
+                                className="form-control ps-5"
                                 placeholder="********"
                                 value={formData.password}
                                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -71,7 +71,7 @@ export default function LogInPage() {
                             <button
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="absolute right-3"
+                                className="btn btn-sm position-absolute top-50 end-0 translate-middle-y me-2"
                             >
                                 {showPassword ? <EyeOff /> : <Eye />}
                             </button>
@@ -82,11 +82,11 @@ export default function LogInPage() {
                     <button
                         type="submit"
                         disabled={isSigningUp}
-                        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+                        className="btn btn-primary w-45 justify-center"
                     >
                         {isSigningUp ? (
-                            <span className="flex items-center justify-center gap-2">
-                                <Loader2 className="animate-spin" />
+                            <span className="btn btn-primary w-100 justify-center">
+                                <Loader2 className="me-2 spinner-border spinner-border-sm"  />
                                 Loading...
                             </span>
                         ) : (
@@ -106,7 +106,7 @@ export default function LogInPage() {
             </div>
 
             {/* Right side (image) */}
-            <div className="w-1/2 hidden md:block">
+            <div className="w-50 d-none d-lg-flex align-items-center justify-content-center">
                 <AuthImagePattern
                     title="Join our community"
                     subtitle="Connect with friends, share moments, and stay in touch with your loved ones."

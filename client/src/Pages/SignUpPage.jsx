@@ -25,17 +25,17 @@ export default function SignUpPage() {
     };
 
     return (
-        <div className="d-flex min-vh-100 h-100 text-white d-flex align-items-center jucstify-content-center" style={{ backgroundColor: '#0f172a' }}>
+        <div className="d-flex min-vh-100 h-100 text-white d-flex align-items-center jucstify-content-center flex-wrap" style={{ backgroundColor: '#0f172a' }}>
             {/* Left (form) */}
-            <div className="w-50 d-flex flex-column align-items-center justify-content-center px-5">
+            <div className="w-50 d-flex flex-column align-items-center justify-content-center ">
                 <div className="text-center mb-4">
                     <MessageSquare size={32} className="mb-2 text-primary" />
                     <h2 className="fw-bold">Create Account</h2>
                     <p className="text-secondary">Get started with your free account</p>
                 </div>
-                <form onSubmit={handleSubmit} className="w-50 form-controler vstack gap-3">
+                <form onSubmit={handleSubmit} className="w-100 form-controler vstack gap-3 d-flex align-items-center jucstify-content-center">
                     {/* Full Name */}
-                    <div>
+                    <div className='w-50 form-control'>
                         <label className="form-label">Full Name</label>
                         <div className="position-relative bg-transpent">
                             <User className="position-absolute top-50  translate-middle-y ms-3 text-dark" />
@@ -48,7 +48,7 @@ export default function SignUpPage() {
                         </div>
                     </div>
                     {/* Email */}
-                    <div>
+                    <div className='w-50 form-control'>
                         <label className="form-label">Email</label>
                         <div className="position-relative bg-transprant">
                             <Mail className="position-absolute top-50 translate-middle-y ms-3 text-dark" />
@@ -62,7 +62,7 @@ export default function SignUpPage() {
                         </div>
                     </div>
                     {/* Password */}
-                    <div>
+                    <div className='w-50 form-control'>
                         <label className="form-label">Password</label>
                         <div className="position-relative bg-transprant">
                             <Lock className="position-absolute top-50 translate-middle-y ms-3 text-dark" />
@@ -84,7 +84,7 @@ export default function SignUpPage() {
                     </div>
 
                     {/* Submit Button */}
-                    <button className="btn btn-primary w-100" disabled={isSigningUp}>
+                    <button className="btn btn-primary w-45" disabled={isSigningUp}>
                         {isSigningUp ? (
                             <>
                                 <Loader2 className="me-2 spinner-border spinner-border-sm" />
@@ -102,7 +102,7 @@ export default function SignUpPage() {
             </div>
 
             {/* Right (grid pattern) */}
-            <div className="w-50 d-none d-lg-flex align-items-center justify-content-center p-5">
+            <div className="w-50 d-none d-lg-flex align-items-center justify-content-center ">
                 <AuthImagePattern
                     title="Join our community"
                     subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
