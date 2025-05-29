@@ -1,4 +1,4 @@
-import Message from "../models/message.model.js";
+import Message from "../modules/message.module.js";
 import User from "../modules/user.model.js"; // ✅ Corrected path
 
 import cloudinary from "../lib/cloudinary.js";

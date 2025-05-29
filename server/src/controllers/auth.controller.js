@@ -3,6 +3,7 @@ import User from "../modules/user.model.js"; // ✅ Corrected path
 import bcrypt from "bcryptjs";
 import cloudinary from "../lib/cloudinary.js";
 
+// Sign Up
 export const signup = async (req, res) => {
   const { fullName, email, password } = req.body;
   try {
@@ -47,6 +48,7 @@ export const signup = async (req, res) => {
   }
 };
 
+// Login
 export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -75,6 +77,7 @@ export const login = async (req, res) => {
   }
 };
 
+// logout
 export const logout = (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
@@ -85,6 +88,7 @@ export const logout = (req, res) => {
   }
 };
 
+// updateProfile
 export const updateProfile = async (req, res) => {
   try {
     const { profilePic } = req.body;
