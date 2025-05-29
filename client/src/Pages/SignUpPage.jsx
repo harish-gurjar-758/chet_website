@@ -49,14 +49,14 @@ export default function SignUpPage() {
 
                     <form onSubmit={handleSubmit} className="vstack gap-3">
                         {/* Full Name */}
-                        <div>
+                        <div className='form-control'>
                             <label className="form-label">Full Name</label>
                             <div className="input-group">
                                 <span className="input-group-text bg-white"><User className="text-secondary" /></span>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="John Doe"
+                                    placeholder="Harish Gurjar"
                                     value={formData.fullName}
                                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                                 />
@@ -64,7 +64,7 @@ export default function SignUpPage() {
                         </div>
 
                         {/* Email */}
-                        <div>
+                        <div className='form-control'>
                             <label className="form-label">Email</label>
                             <div className="input-group">
                                 <span className="input-group-text bg-white"><Mail className="text-secondary" /></span>
@@ -79,7 +79,7 @@ export default function SignUpPage() {
                         </div>
 
                         {/* Password */}
-                        <div>
+                        <div className='form-control'>
                             <label className="form-label">Password</label>
                             <div className="input-group">
                                 <span className="input-group-text bg-white"><Lock className="text-secondary" /></span>
@@ -113,7 +113,7 @@ export default function SignUpPage() {
                         </button>
                     </form>
 
-                    <p className="text-center mt-3 text-muted">
+                    <p className="text-center mt-3">
                         Already have an account?{' '}
                         <Link to="/login" className="text-decoration-none text-primary">
                             Sign in

@@ -2,7 +2,7 @@ import React from 'react';
 
 const AuthImagePattern = ({ title, subtitle }) => {
   return (
-    <div className="d-none d-lg-flex align-items-center justify-content-center bg-light py-5 px-4" style={{ minHeight: '100vh' }}>
+    <div className="d-none d-lg-flex align-items-center justify-content-center py-5 px-4" style={{ minHeight: '100vh' }}>
       <div className="text-center" style={{ maxWidth: '24rem' }}>
         {/* Grid pattern */}
         <div
@@ -21,7 +21,7 @@ const AuthImagePattern = ({ title, subtitle }) => {
 
         {/* Text */}
         <h2 className="h4 fw-bold mb-3">{title}</h2>
-        <p className="text-muted">{subtitle}</p>
+        <p className="">{subtitle}</p>
       </div>
     </div>
   );

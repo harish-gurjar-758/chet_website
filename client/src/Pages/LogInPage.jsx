@@ -19,7 +19,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container-fluid min-vh-100 d-flex flex-lg-row flex-column align-items-center justify-content-center bg-dark text-white p-4">
+    <div className="container-fluid min-vh-100 d-flex flex-lg-row flex-column align-items-center justify-content-center bg-dark text-white p-4 top z-5">
       {/* Left side - Form */}
       <div className="col-lg-6 d-flex flex-column align-items-center justify-content-center px-4">
         <div className="w-100" style={{ maxWidth: "450px" }}>
@@ -33,7 +33,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="vstack gap-3">
             {/* Email */}
-            <div>
+            <div className="form-control">
               <label className="form-label">Email</label>
               <div className="input-group">
                 <span className="input-group-text bg-white"><Mail className="text-secondary" /></span>
@@ -48,7 +48,7 @@ export default function LoginPage() {
             </div>
 
             {/* Password */}
-            <div>
+            <div className="form-control">
               <label className="form-label">Password</label>
               <div className="input-group">
                 <span className="input-group-text bg-white"><Lock className="text-secondary" /></span>
@@ -82,7 +82,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="text-center mt-3 text-muted">
+          <div className="text-center mt-3 ">
             Don't have an account?{" "}
             <Link to="/signup" className="text-decoration-none text-info">Create account</Link>
           </div>
