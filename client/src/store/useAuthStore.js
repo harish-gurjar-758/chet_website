@@ -5,17 +5,20 @@ import toast from 'react-hot-toast';
 export const useAuthStore = create((set) => ({
     authUser: null,
     isSigningUp: false,
-    isLogingIn: false,
-    isUpdatingProfile: false, 
-
+    isLoggingIn: false,
+    isUpdatingProfile: false,
     isCheckingAuth: true,
 
     checkAuth: async () => {
         try {
-            const user = await CheckAuthentication();
-            set({ authUser: data.user });
+            const response = await CheckAuthentication(); // Assuming this returns { user: {...} }
+            if (response && response.user) {
+                set({ authUser: response.user });
+            } else {
+                set({ authUser: null });
+            }
         } catch (error) {
-            console.log("Error in checkAuth : ", error);
+            console.error("Error in checkAuth:", error);
             set({ authUser: null });
         } finally {
             set({ isCheckingAuth: false });
@@ -40,20 +43,21 @@ export const useAuthStore = create((set) => ({
         }
     },
 
-    logIn: async (data) => {
-        set({ isLogingIn: true });
+    logIn: async (formData) => {
+        set({ isLoggingIn: true });
         try {
-            const response = await SignIn(data);
-            if (response && response.user) {
-                set({ authUser: response.data });
-                toast.success("Welcome Back! You are Login successfully");
+            const res = await SignIn(formData);
+            if (res && res.user) {
+                set({ authUser: res.user });
+                toast.success("Welcome back! You logged in successfully.");
             } else {
                 toast.error("Login failed. Please try again.");
             }
         } catch (error) {
-            toast.error(error?.response?.data?.message);
+            const errorMessage = error?.response?.data?.message || "Login failed. Please try again.";
+            toast.error(errorMessage);
         } finally {
-            set({ isLogingIn: false });
+            set({ isLoggingIn: false });
         }
     },
-}))
+}));
