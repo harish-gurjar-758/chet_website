@@ -1,4 +1,4 @@
-chet_website
+chat_website
 A full-stack chat application built with the MERN stack (MongoDB, Express.js, React.js, Node.js).
 
 🚀 Features
@@ -24,7 +24,7 @@ Version Control: Git
 📂 Project Structure
 
 
-chet_website/
+chat_website/
 ├── client/             # Frontend source code
 ├── server/             # Backend source code
 ├── .gitignore
@@ -41,7 +41,7 @@ Installation
 Clone the repository:
 
 
-git clone https://github.com/harish-gurjar-758/chet_website.git
+git clone https://github.com/harish-gurjar-758/chat_website.git
 Navigate to the project directory:
 
 
